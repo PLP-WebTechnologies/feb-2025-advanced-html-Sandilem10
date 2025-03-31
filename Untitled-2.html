@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced HTML5 Elements and Forms</title>
+    <style>
+        /* Basic styling for better presentation */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        fieldset {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+        legend {
+            padding: 0 5px;
+            font-weight: bold;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Advanced HTML5 Elements Demonstration</h1>
+    </header>
+
+    <!-- Ordered List with Roman Numerals -->
+    <section id="ordered-list">
+        <h2>Top 5 Programming Languages (Ordered List with Roman Numerals)</h2>
+        <ol type="I">
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li>Java</li>
+            <li>C#</li>
+            <li>PHP</li>
+        </ol>
+    </section>
+
+    <!-- External Image from Pexels -->
+    <section id="external-image">
+        <h2>Beautiful Nature Image from Pexels</h2>
+        <figure>
+            <img src="https://images.pexels.com/photos/15286/pexels-photo.jpg" 
+                 alt="Scenic mountain landscape with trees and fog" 
+                 width="800"
+                 height="500">
+            <figcaption>Mountain landscape photo from Pexels.com</figcaption>
+        </figure>
+    </section>
+
+    <!-- Contacts Table -->
+    <section id="contacts-table">
+        <h2>Contact List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sam Dlamini</td>
+                    <td>123 Main St, Mbabane</td>
+                    <td>555-0101</td>
+                    <td>samdlamini@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Jane Sithole</td>
+                    <td>456 Oak Ave, Johannesburg</td>
+                    <td>555-0102</td>
+                    <td>jsithole@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Robert Magongo</td>
+                    <td>789 Pine Rd, Windhoek</td>
+                    <td>555-0103</td>
+                    <td>robmag@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Emily Davis</td>
+                    <td>321 Elm Blvd, CapeTown</td>
+                    <td>555-0104</td>
+                    <td>emily.d@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Michael Wilson</td>
+                    <td>654 Maple Ln, CapeTown</td>
+                    <td>555-0105</td>
+                    <td>michaelqw@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Registration Form with HTML5 Validation -->
+    <section id="registration-form">
+        <h2>Registration Form</h2>
+        <form id="register" action="/submit" method="post" novalidate>
+            <!-- Name Field -->
+            <div class="form-group">
+                <label for="name">Full Name*:</label>
+                <input type="text" id="name" name="name" 
+                       placeholder="Enter your full name" 
+                       required
+                       minlength="3"
+                       maxlength="50">
+                <small>Required, 3-50 characters</small>
+            </div>
+
+            <!-- Email Field -->
+            <div class="form-group">
+                <label for="email">Email*:</label>
+                <input type="email" id="email" name="email" 
+                       placeholder="your.email@example.com" 
+                       required
+                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                <small>Required, must be a valid email address</small>
+            </div>
+
+            <!-- Password Field -->
+            <div class="form-group">
+                <label for="password">Password*:</label>
+                <input type="password" id="password" name="password" 
+                       placeholder="Create a password" 
+                       required
+                       minlength="8"
+                       pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$">
+                <small>Required, 8+ chars with uppercase, lowercase, and number</small>
+            </div>
+
+            <!-- Date of Birth -->
+            <div class="form-group">
+                <label for="dob">Date of Birth*:</label>
+                <input type="date" id="dob" name="dob" 
+                       required
+                       min="1900-01-01"
+                       max="2023-12-31">
+            </div>
+
+            <!-- Dropdown for Country -->
+            <div class="form-group">
+                <label for="country">Country*:</label>
+                <select id="country" name="country" required>
+                    <option value="" disabled selected>Select your country</option>
+                    <option value="GH">Ghana</option>
+                    <option value="NR">Nigeria</option>
+                    <option value="NA">Namibia</option>
+                    <option value="KE">Kenya</option>
+                    <option value="ES">Eswatini</option>
+                    <option value="SA">South Africa</option>
+                    <option value="OT">Other</option>
+                </select>
+            </div>
+
+            <!-- Radio Buttons for Gender -->
+            <fieldset class="form-group">
+                <legend>Gender:</legend>
+                <label>
+                    <input type="radio" name="gender" value="male" checked> Male
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="female"> Female
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="other"> Other
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="prefer-not"> Prefer not to say
+                </label>
+            </fieldset>
+
+            <!-- Checkboxes for Interests -->
+            <fieldset class="form-group">
+                <legend>Interests (Select all that apply):</legend>
+                <label>
+                    <input type="checkbox" name="interests" value="technology"> Technology
+                </label>
+                <label>
+                    <input type="checkbox" name="interests" value="sports"> Sports
+                </label>
+                <label>
+                    <input type="checkbox" name="interests" value="music"> Music
+                </label>
+                <label>
+                    <input type="checkbox" name="interests" value="reading"> Reading
+                </label>
+                <label>
+                    <input type="checkbox" name="interests" value="travel"> Travel
+                </label>
+            </fieldset>
+
+            <!-- Textarea for Bio -->
+            <div class="form-group">
+                <label for="bio">Short Bio:</label>
+                <textarea id="bio" name="bio" 
+                          placeholder="Tell us about yourself..."
+                          maxlength="500"></textarea>
+                <small>Maximum 500 characters</small>
+            </div>
+
+            <!-- Terms and Conditions Checkbox -->
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="terms" required> I agree to the Terms and Conditions*
+                </label>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Multimedia Section -->
+    <section id="multimedia">
+        <h2>Multimedia Elements</h2>
+        
+        <!-- Video Element -->
+        <div class="video-container">
+            <h3>Sample Video</h3>
+            <video width="640" height="360" controls>
+                <source src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>A sample video demonstrating HTML5 video element.</p>
+        </div>
+        
+        <!-- Audio Element -->
+        <div class="audio-container">
+            <h3>Sample Audio</h3>
+            <audio controls>
+                <source src="https://samplelib.com/lib/preview/mp3/sample-3s.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <p>A sample audio demonstrating HTML5 audio element.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Advanced HTML5 Demo. All rights reserved.</p>
+    </footer>
+</body>
+</html>
